@@ -604,6 +604,7 @@ Showdown.converter = function(converter_options) {
     // These are all the transformations that form block-level
     // tags like paragraphs, headers, and list items.
     //
+    text = _DoLists(text);
     text = _DoHeaders(text);
 
     // Do Horizontal Rules:
@@ -612,7 +613,6 @@ Showdown.converter = function(converter_options) {
     text = text.replace(/^[ ]{0,2}([ ]?\-[ ]?){3,}[ \t]*$/gm, key);
     text = text.replace(/^[ ]{0,2}([ ]?\_[ ]?){3,}[ \t]*$/gm, key);
 
-    text = _DoLists(text);
     text = _DoCodeBlocks(text);
     text = _DoBlockQuotes(text);
 
@@ -1041,17 +1041,17 @@ Showdown.converter = function(converter_options) {
     text = text.replace(/^(\#{1,6})[ \t]*(.+?)[ \t]*\#*\n+/gm,
       function(wholeMatch, m1, m2) {
         var h_level = m1.length;
-        //return hashBlock("<h" + h_level + ' id="' + headerId(m2) + '">' + _RunSpanGamut(m2) + "</h" + h_level + ">");
+        //return hashHeading("<h" + h_level + ' id="' + headerId(m2) + '">' + _RunSpanGamut(m2) + "</h" + h_level + ">");
         if (h_level > 3) //1,2 => [h], 3 => [big]
-          return hashBlock(_RunSpanGamut(m2));
+          return hashHeading(_RunSpanGamut(m2));
         else if (h_level == 3)
-          return hashBlock("[big]" + _RunSpanGamut(m2) + "[/big]");
+          return hashHeading("[big]" + _RunSpanGamut(m2) + "[/big]");
         else if (h_level == 2)
-          return hashBlock("[h]" + _RunSpanGamut(m2) + "[/h]");
+          return hashHeading("[h]" + _RunSpanGamut(m2) + "[/h]");
         else if (h_level == 1)
-          return hashBlock("[h][size=150%]" + _RunSpanGamut(m2) + "[/size][/h]");
+          return hashHeading("[h][size=150%]" + _RunSpanGamut(m2) + "[/size][/h]");
         else //h_level won't be negative
-          return hashBlock("[h]" + _RunSpanGamut(m2) + "[/h]");
+          return hashHeading("[h]" + _RunSpanGamut(m2) + "[/h]");
       });
 
     function headerId(m) {
@@ -1310,6 +1310,11 @@ Showdown.converter = function(converter_options) {
   var hashBlock = function(text) {
     text = text.replace(/(^\n+|\n+$)/g, "");
     return "\n\n~K" + (g_html_blocks.push(text) - 1) + "K\n\n";
+  }
+
+  var hashHeading = function(text) {
+    text = text.replace(/(^\n+|\n+$)/g, "");
+    return "\n\n~K" + (g_html_blocks.push(text) - 1) + "K\n";
   }
 
   var _DoCodeSpans = function(text) {
