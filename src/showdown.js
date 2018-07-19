@@ -745,6 +745,10 @@ Showdown.converter = function(converter_options) {
     */
     text = text.replace(/(\[((?:\[[^\]]*\]|[^\[\]])*)\]\([ \t]*()<?(.*?(?:\(.*?\).*?)?)>?[ \t]*(?:(['"])(.*?)\6[ \t]*)?\))/g, writeAnchorTag);
 
+
+    // NGA relative URL replace
+    text = text.replace(/http[s]?:\/\/(?:bbs\.nga\.cn|\.bbs\.ngacn\.cc)/gi, '');
+
     //
     // Last, handle reference-style shortcuts: [link text]
     // These must come last in case you've also got [link test][1]
