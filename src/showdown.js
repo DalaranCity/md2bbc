@@ -1042,12 +1042,16 @@ Showdown.converter = function(converter_options) {
       function(wholeMatch, m1, m2) {
         var h_level = m1.length;
         //return hashBlock("<h" + h_level + ' id="' + headerId(m2) + '">' + _RunSpanGamut(m2) + "</h" + h_level + ">");
-        if (h_level > 3) //1,2 => [big], 3 => [small]
+        if (h_level > 3) //1,2 => [h], 3 => [big]
           return hashBlock(_RunSpanGamut(m2));
         else if (h_level == 3)
-          return hashBlock("[small]" + _RunSpanGamut(m2) + "[/small]");
-        else //h_level won't be negative
           return hashBlock("[big]" + _RunSpanGamut(m2) + "[/big]");
+        else if (h_level == 2)
+          return hashBlock("[h]" + _RunSpanGamut(m2) + "[/h]");
+        else if (h_level == 1)
+          return hashBlock("[h][size=150%]" + _RunSpanGamut(m2) + "[/size][/h]");
+        else //h_level won't be negative
+          return hashBlock("[h]" + _RunSpanGamut(m2) + "[/h]");
       });
 
     function headerId(m) {
