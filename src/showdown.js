@@ -1114,7 +1114,7 @@ Showdown.converter = function(converter_options) {
         result = result.replace(/\s+$/, "");
         //result = "<"+list_type+">" + result + "</"+list_type+">\n";
         console.log("[_DoLists]g_list_level, result:", result);
-        result = "[list]" + result + "[/list]\n";
+        result = "[list]" + result + "[/list]\n\n";
         return result;
       });
     } else {
@@ -1132,7 +1132,7 @@ Showdown.converter = function(converter_options) {
         console.log("[_DoLists]result: " + result);
         //result = result.split("\n").map(function(item){return "[\\*] "+item+"\n";}).join("");
         //console.log("[_DoLists]result after treatment: "+result);
-        result = runup + "[list]\n" + result + "[/list]\n";
+        result = runup + "[list]\n" + result + "[/list]\n\n";
         return result;
       });
     }
