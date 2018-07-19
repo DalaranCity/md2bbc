@@ -1,97 +1,64 @@
 <html>
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Markdown to BBCode converter</title>
   <script type="text/javascript" src='./src/showdown.js'></script>
   <script type="text/javascript" src='./mkd.js'></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    textarea {
+      font-family: monospace;
+    }
+  </style>
 </head>
+
 <body>
-  Markdown to BBCode converter<br/>
+  <h2>Markdown to BBCode converter</h2>
+  <h3>Notion to bbs.nga.cn version, by <a href="https://dalaran.city/">dalaran.city</a></h3>
   <a href='SYNTAX.md'>Syntax reference (examples)</a>&nbsp;<a href='tests/test.html'>automated tests by QUnit.js</a>&nbsp;<a href="http://github.com/alfateam123/docs/tutorial.md">md2bbc tutorial</a>
   <table>
     <tr>
-      <td><textarea id='md' rows='30' cols='80'><http://en.wikipedia.org/wiki/SECD_abstract_machine>
+      <td><textarea id='md' rows='30' cols='80'>NGA镜像：[[福利] 常见单体插件推荐，纯干货。你说功能我猜插件名，不定期清理更新](https://bbs.nga.cn/read.php?tid=13887729)
 
-**WAHT IZ LOVE?** _baby don't hurt me! don't hurt me! no more_
-<http://www.youtube.com/watch?v=r4qmUpAE9o8>
+联动：[大脚怎么了？被封了么？](https://bbs.nga.cn/read.php?tid=13880793)
 
----
+目标：普及单体插件，常用单体插件推荐、排雷
 
-* Asagi
-* Charlotte 
-* Tsurugi
+很多人一直用整合插件，导致的结果就是经常有人来问我这个功能在哪/怎么开/怎么关/怎么突然没有了之类的问题，因此推荐几个我常用的单体插件以及相应的功能介绍，以下插件都是本人真真实实在当前版本用过且好用的情况下才做的推荐，所以不会存在不兼容或者报错的情况。
 
----
+- 排序为 A-Z，标题链接均指向 Curse Forge项目页面
+- 插件较多，查找请使用Ctrl-F(关键词例如：背包、战斗、伤害、PvP)
+- 大部分插件均有中文汉化，感谢汉化者的努力，个别没用中文翻译的插件基本也不会影响理解与使用。
+- 如果有需要什么功能，但不知道是什么名字的，请留言，我基本都能猜到对应插件名字
+- 争取不定期清理和更新。个人整理，如有遗漏在所难免，有推荐的欢迎留言
+- 以下插件设置、配置不明白的也可以问我，尽量解答
 
-more _cool tests_
-[math]\\sqrt-1 * \\frac{5}{b*2*3}-q_ad[/math]_
-[cur]**asd**[/cur]
-[url=http://google.com]<http://alfateam123.niggazwithattitu.de>[/url]
+# 目录
 
-[code=sh]
-find *.* | grep .torrent$
-[/code]
+- 当前正在使用的插件
+- 曾经使用的插件
+- 非Curse平台插件推荐
+- 大脚世界频道如何处理？
+- 如何下载，Twitch(Curse)客户端简单科普
+- 常用链接、官网
 
-```perl
-use Data::Dumper;
-print Dumper($val);
-for my $lol (@unrecognized){
-  #thenopeproject
-}
-print **lolololol**
-print "do you wanna use ` ?"; 
-print `find .`;
+# 以下为本人当前正在使用的插件
 
-```sh
-ls | grep html
-```
+## [AdvancedInterfaceOptions](https://www.curseforge.com/wow/addons/advancedinterfaceoptions)
 
->4chan
->style
->is triggered!
-not in the quote
+界面高级设置插件，通常用来改战斗文字On/Off，视野、tab距离、SpellQueueWindow等暴雪自带设置界面中没有的设置，插件内置CVar浏览器可方便修改隐藏设置
 
----
+## [ALL THE THINGS](https://www.curseforge.com/wow/addons/all-the-things)
 
->one
-two
->three
->four
-_five_
-**six**
+最近发现一款船新的插件，很火，叫ALL THE THINGS，简称ATT，追踪幻化、坐骑、小宠物、成就、任务、节日等等进度，会显示当前区域有哪些可以完成的项目，成就大佬必备
 
+- 效果
 
-[small]lololol[/small]
-
-wtf -> lolpls
-
-> niconiconii pls
-stop saying niconiconii
-
-awful drawing here! ![it should be "alt"](http://31.media.tumblr.com/61c8bc1f8be79bf214c54688c7ed4377/tumblr_n4rhtwz7Bn1s825jqo1_1280.jpg)
-
-## bigbigbigbigbigbigbig
-### smallsmallsmallsmallsmallsmallsmall ###
-#### lolnope
-# biggah
-BIG
----
-
-EQUALLY BIG
-===========
-
-
-> xp is
-> for old users
-> did you know that?
-
-lol
-
-<https://gist.github.com/alfateam123/7cc354929eb3d8817857>
-
-@alfateam123 #Nerdzilla
-
-~~you didn't see a thing~~</textarea></td>
+  ![](https://www.notion.so/8bf2b474c216466c81c2ce3b794c2b38#71497f131b854ca2ad5e2b6763ca3707)</textarea></td>
       <td><textarea id='bb' rows='30' cols='80'></textarea></td>
     </tr>
   </table>
@@ -103,4 +70,5 @@ lol
   <br />
   <input type="checkbox" value="enable autolinking" onclick="return toggleautolinking();" />enable autolinking</input>
 </body>
+
 </html>
